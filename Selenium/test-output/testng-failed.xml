@@ -3,7 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default Suite]">
   <test thread-count="5" name="Selenium(failed)">
     <classes>
-      <class name="Testcases.RailWay.bookticket.TC14_BookTicket">
+      <class name="Testcases.RailWay.railways.TC14_BookTicket">
         <methods>
           <include name="TC14"/>
           <include name="beforeClass"/>

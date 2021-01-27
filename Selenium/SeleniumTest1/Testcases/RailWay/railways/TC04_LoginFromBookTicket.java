@@ -1,4 +1,4 @@
-package Testcases.RailWay.login;
+package Testcases.RailWay.railways;
 
 import PageObjects.Railway.*;
 import Testcases.RailWay.base.CommonTestBase;
@@ -11,8 +11,8 @@ public class TC04_LoginFromBookTicket extends CommonTestBase {
 
     LoginPage loginPage = new LoginPage();
 
-    @Test
-    public void TC04(){
+    @Test(dataProvider = "TC04")
+    public void TC04(String expected){
         System.out.println("TC04 - Login page displays when un-logged User clicks on Book ticket tab");
 
         System.out.println("Go to Book ticket page");
@@ -20,7 +20,7 @@ public class TC04_LoginFromBookTicket extends CommonTestBase {
 
         System.out.println("Check login page is displayed");
         String actualTitle = loginPage.getLoginPageTitle();
-        String expectedTitle = loginPage.loginPageTitle();
+        String expectedTitle = expected;
         Assert.assertEquals(actualTitle,expectedTitle);
 
     }

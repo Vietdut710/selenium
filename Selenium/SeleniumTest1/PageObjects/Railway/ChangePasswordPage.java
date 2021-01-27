@@ -1,6 +1,7 @@
 package PageObjects.Railway;
 
 import Common.Constant.Constant;
+import DataObject.Account;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
@@ -11,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class ChangePasswordPage extends GeneralPage {
@@ -50,11 +50,11 @@ public class ChangePasswordPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(_successMsg);
     }
 
-    public void changePassword(String currentpass, String NewPassword) {
+    public void changePassword(Account account, String currentpass, String newPassword) {
         fillCurrentPass(currentpass);
-        fillNewPass(NewPassword);
-        fillConfirmPass(NewPassword);
-        changeJsonPassword(NewPassword);
+        fillNewPass(newPassword);
+        fillConfirmPass(newPassword);
+        account.setPassword(newPassword);
         clickBtnChangePassword();
     }
 
@@ -83,23 +83,6 @@ public class ChangePasswordPage extends GeneralPage {
         getCurrentPass().sendKeys(currentpass);
     }
 
-    public void changeJsonPassword(String password) {
-        JSONParser  jsonParser = new JSONParser();
-
-
-        try (FileWriter f = new FileWriter(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\NewAccount.json")) {
-            Object obj =  jsonParser.parse();
-            obj.replace("password", password);
-
-            f.write(obj.toString());
-            f.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println(obj);
-    }
 
     public String newPassword() {
 

@@ -27,6 +27,7 @@ public class BookTicketPage extends GeneralPage{
     }
 
     private void clickBtnBookTicket() {
+
         getBtnBookTicket().sendKeys(Keys.ENTER);
 
         try {

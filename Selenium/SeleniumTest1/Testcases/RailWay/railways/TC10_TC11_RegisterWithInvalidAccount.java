@@ -1,4 +1,4 @@
-package Testcases.RailWay.register;
+package Testcases.RailWay.railways;
 
 import PageObjects.Railway.RegisterPage;
 import Testcases.RailWay.base.CommonTestBase;

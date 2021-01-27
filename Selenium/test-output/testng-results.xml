@@ -6,7 +6,7 @@
     <groups>
     </groups>
     <test name="Selenium" duration-ms="16219" started-at="2021-01-22T06:42:20Z" finished-at="2021-01-22T06:42:36Z">
-      <class name="Testcases.RailWay.bookticket.TC14_BookTicket">
+      <class name="Testcases.RailWay.railways.TC14_BookTicket">
         <test-method status="PASS" signature="beforeClass()[pri:0, instance:Testcases.RailWay.bookticket.BookTicketCommonTest@17c68925]" name="beforeClass" is-config="true" duration-ms="9446" started-at="2021-01-22T06:42:20Z" finished-at="2021-01-22T06:42:29Z">
           <reporter-output>
           </reporter-output>
@@ -24,7 +24,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:568)
 at org.testng.Assert.assertEquals(Assert.java:578)
-at Testcases.RailWay.bookticket.TC14_BookTicket.TC14(BookTicketCommonTest.java:39)
+at Testcases.RailWay.railways.TC14_BookTicket.TC14(BookTicketCommonTest.java:39)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

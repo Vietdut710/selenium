@@ -1,4 +1,4 @@
-package Testcases.RailWay.bookticket;
+package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import DataObject.Account;

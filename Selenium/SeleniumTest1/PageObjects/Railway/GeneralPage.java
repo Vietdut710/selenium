@@ -2,8 +2,10 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -32,6 +34,8 @@ public class GeneralPage {
 
     private final String pageTitle = "//span[contains(text(),'%s')]//ancestor::div[@id='page']//h1";
     private final String fieldMsg ="//label[starts-with(text(),'%s')]//following-sibling::label";
+    private final String selectBox = "//label[starts-with(text(),'%s')]//following-sibling::select";
+    private final String selectinBox = "//label[starts-with(text(),'%s')]//following-sibling::*/select";
 
 
     //Elements
@@ -115,11 +119,11 @@ public class GeneralPage {
     }
 
     public void selectComboBox(String boxName, String value) {
-        By element = By.xpath("//label[starts-with(text(),'" + boxName + "')]//following-sibling::select|" +
-                "//label[starts-with(text(),'" + boxName + "')]//following-sibling::*/select");
-        Utilities.waiForControl(element, 5);
-        ((JavascriptExecutor)
-                Constant.WEBDRIVER).executeScript ("arguments[0].scrollIntoView();", element);
+        By element = By.xpath(String.format(selectBox,boxName) +"|"+
+                String.format(selectinBox,boxName));
+        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        js.executeScript("scrollBy(0, 4500)");
+
         Select select = new Select(Constant.WEBDRIVER.findElement(element));
         select.selectByVisibleText(value);
     }
@@ -164,6 +168,31 @@ public class GeneralPage {
     }
 
     //Dynamic Methods
+
+    public String readJson(String testCase,String value){
+
+        try {
+            JSONParser jsonParser = new JSONParser();
+            FileReader fileReader = new FileReader(System.getProperty("user.dir")+"\\SeleniumTest1\\DataObject\\data.json");
+
+            Object obj = jsonParser.parse(fileReader);
+
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray jsonArray = (JSONArray) jsonObject.get(testCase);
+
+            jsonObject = (JSONObject) jsonArray.get(0);
+            return  (String) jsonObject.get(value);
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+
+        return null;
+    }
 
     public static String getExpectedLoginMsg(String value) {
         JSONParser jsonParser = new JSONParser();
@@ -250,23 +279,6 @@ public class GeneralPage {
         return null;
     }
 
-    //get obj
-    public String getNewAccount(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\NewAccount.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
     //check
     public boolean checkElementExist(By element) {
         return Constant.WEBDRIVER.findElements(element).size() != 0;
@@ -347,6 +359,7 @@ public class GeneralPage {
         }
         return null;
     }
+
 
 
 

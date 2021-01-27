@@ -1,4 +1,4 @@
-package Testcases.RailWay.login;
+package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.*;
@@ -11,14 +11,13 @@ import java.util.Random;
 
 public class TC02_LoginWithBlankUsername extends CommonTestBase {
 
-    private String tmInvalidPassword = "Invalid Password";
     private String tmBlankUsername = "";
 
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test
-    public void TC02(){
+    @Test(dataProvider = "TC02")
+    public void TC02(String expected){
         System.out.println("TC02 - User can't login with blank Username textbox");
 
         System.out.println("Go to login page");
@@ -29,7 +28,7 @@ public class TC02_LoginWithBlankUsername extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = loginPage.blankLoginMsg();
+        String expectedMsg = expected;
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

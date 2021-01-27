@@ -38,13 +38,13 @@ public class Utilities {
             case "Chrome" :
                 System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()+"\\SeleniumTest1\\Executables\\chromedriver.exe");
                 Constant.WEBDRIVER = new ChromeDriver();
-                Constant.ACTIONS = new Actions(Constant.WEBDRIVER);
+
                 break;
 
             case "Firefox":
                 System.setProperty("webdriver.gecko.driver", Utilities.getProjectPath()+"\\SeleniumTest1\\Executables\\geckodriver.exe");
                 Constant.WEBDRIVER = new FirefoxDriver();
-                Constant.ACTIONS = new Actions(Constant.WEBDRIVER);
+
                 break;
 
             case "Edge":

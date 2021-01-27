@@ -1,0 +1,25 @@
+{
+  "TC01": [{
+    "username": "thanh123@logigear.com",
+    "password": "123456789"
+  }],
+  "TC02": [{
+    "msg_BlankLogin": "There was a problem with your login and/or errors exist in your form."
+  }],
+  "TC03": [{
+    "msg_InvalidLogin": "Invalid username or password. Please try again."
+  }],
+  "TC04": [{
+    "loginPage": "Login Page"
+  }],
+  "TC05": [{}],
+  "TC06": [{}],
+  "TC07": [{}],
+  "TC08": [{}],
+  "TC09": [{}],
+  "TC10": [{}],
+  "TC11": [{}],
+  "TC14": [{}],
+  "TC15": [{}],
+  "TC16": [{}]
+}

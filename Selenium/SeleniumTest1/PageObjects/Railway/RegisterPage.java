@@ -1,13 +1,10 @@
 package PageObjects.Railway;
 
 import Common.Constant.Constant;
-import org.json.simple.JSONObject;
+import DataObject.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class RegisterPage extends GeneralPage {
 
@@ -54,7 +51,7 @@ public class RegisterPage extends GeneralPage {
     }
 
     public WebElement getAlertBoxMsg(String boxname) {
-        return Constant.WEBDRIVER.findElement(By.xpath(String.format(_boxAlertMsg,boxname)));
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(_boxAlertMsg, boxname)));
     }
 
     //Methods
@@ -63,14 +60,20 @@ public class RegisterPage extends GeneralPage {
         getTxtPassword().sendKeys(password);
         getTxtRePassword().sendKeys(repass);
         getTxtPassport().sendKeys(passport);
+
     }
 
-    public void createAccount(String email, String password, String repass, String passport) {
-        getTxtUsername().sendKeys(email);
-        getTxtPassword().sendKeys(password);
-        getTxtRePassword().sendKeys(repass);
-        getTxtPassport().sendKeys(passport);
+    public void createAccount(Account account, String email, String password, String repass, String passport) {
+        fillData(email,password,repass,passport);
+        saveNewAccount(account, email, password, passport);
+        Constant.account = account;
         clickRegisterButton();
+    }
+
+    private void saveNewAccount(Account account, String email, String password, String passport) {
+        account.setUsername(email);
+        account.setPassword(password);
+        account.setPassport(passport);
     }
 
     public void clickRegisterButton() {
@@ -78,7 +81,7 @@ public class RegisterPage extends GeneralPage {
 
         try {
             Thread.sleep(1500);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -88,23 +91,23 @@ public class RegisterPage extends GeneralPage {
         return getLblSuccessMsg().getText();
     }
 
-    public String registrationConfirmedMsg(){
+    public String registrationConfirmedMsg() {
         return getExpectedRegisterMsg("RegistrationConfirmed");
     }
 
-    public String invalidRegisterMsg(){
+    public String invalidRegisterMsg() {
         return getExpectedRegisterMsg("InvalidRegister");
     }
 
-    public String invalidPasswordLengthMsg(){
+    public String invalidPasswordLengthMsg() {
         return getExpectedRegisterMsg("PasswordLength");
     }
 
-    public String invalidUsernameLengthMsg(){
+    public String invalidUsernameLengthMsg() {
         return getExpectedRegisterMsg("UsernameLength");
     }
 
-    public String invalidIDLengthMsg(){
+    public String invalidIDLengthMsg() {
         return getExpectedRegisterMsg("IDLength");
     }
 
@@ -118,26 +121,6 @@ public class RegisterPage extends GeneralPage {
 
     public String getPassportFieldMsg() {
         return fieldMsg("PID");
-    }
-
-    @SuppressWarnings("unchecked")
-    public void saveNewAccount(String Email, String Password, String Passport) {
-
-        JSONObject obj = new JSONObject();
-        obj.put("username", Email);
-        obj.put("password", Password);
-        obj.put("passport", Passport);
-
-        try (FileWriter f = new FileWriter(System.getProperty("user.dir")
-                + "\\SeleniumTest1\\DataObject\\NewAccount.json")) {
-            f.write(obj.toString());
-            f.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println(obj);
     }
 
 

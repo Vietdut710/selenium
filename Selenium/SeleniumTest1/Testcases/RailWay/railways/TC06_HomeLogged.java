@@ -1,4 +1,4 @@
-package Testcases.RailWay.login;
+package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.*;

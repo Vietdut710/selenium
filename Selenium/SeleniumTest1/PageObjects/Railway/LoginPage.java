@@ -79,18 +79,6 @@ public class LoginPage extends GeneralPage {
 
     }
 
-    public String newAccountUsername() {
-        return getNewAccount("username");
-    }
-
-    public String newAccountPassword() {
-        return getNewAccount("password");
-    }
-
-    public String newAccountPassport() {
-        return getNewAccount("passport");
-    }
-
     //Method get messages
     public String getLoginErrorMsg() {
         return getLblLoginErrorMsg().getText();

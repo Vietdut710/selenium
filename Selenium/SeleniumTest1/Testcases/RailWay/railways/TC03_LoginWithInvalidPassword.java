@@ -1,4 +1,4 @@
-package Testcases.RailWay.login;
+package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.HomePage;
@@ -15,8 +15,8 @@ public class TC03_LoginWithInvalidPassword extends CommonTestBase {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test
-    public void TC03(){
+    @Test(dataProvider = "TC03")
+    public void TC03(String expected){
         System.out.println("TC03 - User cannot log into Railway with invalid password");
 
         System.out.println("Go to login page");
@@ -27,7 +27,7 @@ public class TC03_LoginWithInvalidPassword extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = loginPage.invalidLoginMsg();
+        String expectedMsg = expected;
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

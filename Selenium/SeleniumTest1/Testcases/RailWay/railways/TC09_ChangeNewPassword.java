@@ -1,4 +1,4 @@
-package Testcases.RailWay.changepassword;
+package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import DataObject.Account;
