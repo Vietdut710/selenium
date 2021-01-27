@@ -1,0 +1,12 @@
+{
+  "loginPage": "Login Page",
+  "homePage": "Welcome to Safe Railway",
+  "FAQPage": "Frequently Asked Questions",
+  "contactPage":"Frequently Asked Questions",
+  "timetablePage":"Train Timetable",
+  "ticketPricePage":"Train ticket price list",
+  "registerPage": "Create account",
+  "bookTicketPage": "Book ticket",
+  "myTicketPage": "Manage Tickets",
+  "changePassword": "Change password"
+}

@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Railway">
+
+    <test name="Chrome Test">
+    <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="Testcases.RailWay.login.TC01_LoginWithValidAccount"/>
+            <class name="Testcases.RailWay.login.TC02_LoginWithBlankUsername"/>
+            <class name="Testcases.RailWay.login.TC04_LoginFromBookTicket"/>
+            <class name="Testcases.RailWay.login.TC05_LoginSeveralTimes"/>
+            <class name="Testcases.RailWay.login.TC06_HomeLogged"/>
+            <class name="Testcases.RailWay.register.TC07_CreateAccount"/>
+            <class name="Testcases.RailWay.login.TC08_LoginWithNotActivatedAccount"/>
+            <class name="Testcases.RailWay.changepassword.TC09_ChangeNewPassword"/>
+            <class name="Testcases.RailWay.register.TC10_TC11_RegisterWithInvalidAccount"/>
+            <class name="Testcases.RailWay.bookticket.TC14_BookTicket"/>
+        </classes>
+    </test>
+
+
+
+</suite>
