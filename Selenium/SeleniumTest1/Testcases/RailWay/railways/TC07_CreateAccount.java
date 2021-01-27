@@ -21,8 +21,8 @@ public class TC07_CreateAccount extends CommonTestBase {
 
     RegisterPage registerPage = new RegisterPage();
 
-    @Test
-    public void TC07() {
+    @Test(dataProvider = "TC07")
+    public void TC07(String expected) {
         System.out.println("TC07 - User can create new account");
 
         System.out.println("Go to register page");
@@ -37,7 +37,7 @@ public class TC07_CreateAccount extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = registerPage.getSuccessMsg();
-        String expectedMsg = registerPage.registrationConfirmedMsg();
+        String expectedMsg = expected;
         Assert.assertEquals(actualMsg, expectedMsg);
 
     }

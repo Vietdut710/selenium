@@ -67,4 +67,87 @@ public class CommonTestBase extends Utilities {
         };
         return data;
     }
+
+    @DataProvider(name = "TC05")
+    public Object[][] getDataTC05(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC05","msg_loginSeveralTimes")
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC06")
+    public Object[][] getDataTC06(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC06","myTicketPage"),
+                        generalPage.readJson("TC06","changePassword"),
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC07")
+    public Object[][] getDataTC07(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC07","registrationConfirmed")
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC09")
+    public Object[][] getDataTC09(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC09","passwordChanged")
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC10")
+    public Object[][] getDataTC10(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC10","InvalidRegister")
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC11")
+    public Object[][] getDataTC11(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC11","InvalidRegister"),
+                        generalPage.readJson("TC11","PasswordLength"),
+                        generalPage.readJson("TC11","IDLength")
+                }
+        };
+        return data;
+    }
+
+    @DataProvider(name = "TC14")
+    public Object[][] getDataTC14(){
+        Object[][] data = {
+                {
+                        generalPage.readJson("TC14","departDate"),
+                        generalPage.readJson("TC14","departFrom"),
+                        generalPage.readJson("TC14","arriveAt"),
+                        generalPage.readJson("TC14","seatType"),
+                        generalPage.readJson("TC14","ticketAmount"),
+                        generalPage.readJson("TC14","bookedTicket")
+                }
+        };
+        return data;
+    }
+
+
+
+
 }
+

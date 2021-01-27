@@ -13,8 +13,8 @@ public class TC05_LoginSeveralTimes extends CommonTestBase {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test
-    public void TC05(){
+    @Test(dataProvider = "TC05")
+    public void TC05(String expected){
         System.out.println("TC05 - System shows message when user enters wrong password several times");
 
         System.out.println("Go to login page");
@@ -25,7 +25,7 @@ public class TC05_LoginSeveralTimes extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = loginPage.loginSeveralTimesMsg();
+        String expectedMsg = expected;
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

@@ -36,8 +36,8 @@ public class TC09_ChangeNewPassword extends CommonTestBase {
         registerPage.createAccount(account,tmEmail,tmPassword,tmPassword,tmPassport);
     }
 
-    @Test
-    public void TC09(){
+    @Test(dataProvider = "TC09")
+    public void TC09(String expected){
         System.out.println("TC09 - User can change password");
 
         System.out.println("Go to login page");
@@ -46,22 +46,15 @@ public class TC09_ChangeNewPassword extends CommonTestBase {
         System.out.println("Login with just create account");
         loginPage.login(account.getUsername(),account.getPassword());
 
-        System.out.println(account.getUsername());
-        System.out.println(account.getPassword());
-        System.out.println(account.getPassport());
-
         System.out.println("Go to change password page");
         homePage.gotoChangePasswordPage();
 
         System.out.println("Change a new password replace current password");
         changePasswordPage.changePassword(account, account.getPassword(),tmNewPassword);
 
-
-
-
         System.out.println("Check message");
         String actualMsg = changePasswordPage.getMsgSuccess();
-        String expectedMsg = changePasswordPage.changePasswordSuccessfully();
+        String expectedMsg = expected;
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

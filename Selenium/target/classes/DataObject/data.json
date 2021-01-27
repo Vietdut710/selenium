@@ -12,14 +12,36 @@
   "TC04": [{
     "loginPage": "Login Page"
   }],
-  "TC05": [{}],
-  "TC06": [{}],
-  "TC07": [{}],
+  "TC05": [{
+    "msg_loginSeveralTimes": "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes."
+  }],
+  "TC06": [{
+    "myTicketPage": "Manage Tickets",
+    "changePassword": "Change password"
+  }],
+  "TC07": [{
+    "registrationConfirmed": "Registration Confirmed! You can now log in to the site."
+  }],
   "TC08": [{}],
-  "TC09": [{}],
-  "TC10": [{}],
-  "TC11": [{}],
-  "TC14": [{}],
+  "TC09": [{
+    "passwordChanged": "Your password has been updated!"
+  }],
+  "TC10": [{
+    "InvalidRegister": "There're errors in the form. Please correct the errors and try again."
+  }],
+  "TC11": [{
+    "InvalidRegister": "There're errors in the form. Please correct the errors and try again.",
+    "PasswordLength" : "Invalid password length",
+    "IDLength": "Invalid ID length"
+  }],
+  "TC14": [{
+    "departDate": "1/30/2021",
+    "departFrom": "Phan Thiết",
+    "arriveAt": "Nha Trang",
+    "seatType": "Hard bed",
+    "ticketAmount": "1",
+    "bookedTicket": "Ticket booked successfully!"
+  }],
   "TC15": [{}],
   "TC16": [{}]
 }
