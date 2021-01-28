@@ -6,6 +6,8 @@ import Testcases.RailWay.base.CommonTestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Hashtable;
+
 public class TC05_LoginSeveralTimes extends CommonTestBase {
 
     private String tmInvalidPassword = "Invalid Password";
@@ -13,8 +15,8 @@ public class TC05_LoginSeveralTimes extends CommonTestBase {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test(dataProvider = "TC05")
-    public void TC05(String expected){
+    @Test(dataProvider = "getDataForTest")
+    public void TC05(Hashtable<String, String> data){
         System.out.println("TC05 - System shows message when user enters wrong password several times");
 
         System.out.println("Go to login page");
@@ -25,7 +27,7 @@ public class TC05_LoginSeveralTimes extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = expected;
+        String expectedMsg = data.get("msg_loginSeveralTimes");
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

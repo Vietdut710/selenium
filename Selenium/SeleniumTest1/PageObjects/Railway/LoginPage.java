@@ -3,11 +3,7 @@ package PageObjects.Railway;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Optional;
 
 public class LoginPage extends GeneralPage {
 
@@ -92,22 +88,6 @@ public class LoginPage extends GeneralPage {
 
     public String getLoginPageTitle() {
         return getTitle("Login");
-    }
-
-    public String blankLoginMsg() {
-        return getExpectedLoginMsg("msg_BlankLogin");
-    }
-
-    public String invalidLoginMsg() {
-        return getExpectedLoginMsg("msg_InvalidLogin");
-    }
-
-    public String loginSeveralTimesMsg() {
-        return getExpectedLoginMsg("msg_LoginSeveralTimes");
-    }
-
-    public String loginPageTitle() {
-        return pageTitle("loginPage");
     }
 
 

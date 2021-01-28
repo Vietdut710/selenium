@@ -4,7 +4,7 @@
 <suite name="Railway">
 
     <test name="Chrome Test">
-    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser" value="Firefox"/>
         <classes>
             <class name="Testcases.RailWay.railways.TC01_LoginWithValidAccount"/>
             <class name="Testcases.RailWay.railways.TC02_LoginWithBlankUsername"/>
@@ -14,7 +14,8 @@
             <class name="Testcases.RailWay.railways.TC07_CreateAccount"/>
             <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount"/>
             <class name="Testcases.RailWay.railways.TC09_ChangeNewPassword"/>
-            <class name="Testcases.RailWay.railways.TC10_TC11_RegisterWithInvalidAccount"/>
+            <class name="Testcases.RailWay.railways.TC10_RegisterWithInvalidAccount"/>
+            <class name="Testcases.RailWay.railways.TC11_RegisterWithInvalidAccount"/>
             <class name="Testcases.RailWay.railways.TC14_BookTicket"/>
         </classes>
     </test>

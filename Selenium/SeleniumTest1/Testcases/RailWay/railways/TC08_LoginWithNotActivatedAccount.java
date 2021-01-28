@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Hashtable;
 
 public class TC08_LoginWithNotActivatedAccount extends CommonTestBase {
 
@@ -31,8 +32,8 @@ public class TC08_LoginWithNotActivatedAccount extends CommonTestBase {
         registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
-    @Test
-    public void TC08() {
+    @Test(dataProvider = "getDataForTest")
+    public void TC08(Hashtable<String, String> data) {
         System.out.println("TC08 - User can't login with an account hasn't been activated");
 
         System.out.println("Go to login page");

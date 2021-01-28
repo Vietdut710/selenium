@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Hashtable;
 
 
 public class TC14_BookTicket extends CommonTestBase {
@@ -34,8 +35,8 @@ public class TC14_BookTicket extends CommonTestBase {
         registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
-    @Test(dataProvider = "TC14")
-    public void TC14(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount, String expected) {
+    @Test(dataProvider = "getDataForTest")
+    public void TC14(Hashtable<String, String> data) {
         System.out.println("TC14 - User can book 1 ticket at a time");
 
         System.out.println("Go to login page");
@@ -48,12 +49,12 @@ public class TC14_BookTicket extends CommonTestBase {
         homePage.gotoBookTicketPage();
 
         System.out.println("Book ticket");
-        bookTicketPage.bookTicket(departDate, departFrom, arriveAt, seatType, ticketAmount);
+        bookTicketPage.bookTicket(data.get("departDate"), data.get("departFrom"), data.get("arriveAt"), data.get("seatType"), data.get("ticketAmount"));
 
         System.out.println("Check booked ticket");
         String actualMsg = bookTicketPage.getBookedTicketTitle();
-        String expectedMsg = expected;
-        boolean actualTicket = bookTicketPage.checkTicket(departDate, departFrom, arriveAt, seatType, ticketAmount);
+        String expectedMsg = data.get("bookedTicket");
+        boolean actualTicket = bookTicketPage.checkTicket(data.get("departDate"), data.get("departFrom"), data.get("arriveAt"), data.get("seatType"), data.get("ticketAmount"));
         Assert.assertEquals(actualMsg, expectedMsg);
         Assert.assertTrue(actualTicket);
     }

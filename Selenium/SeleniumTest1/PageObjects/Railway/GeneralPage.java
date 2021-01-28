@@ -1,20 +1,11 @@
 package PageObjects.Railway;
 
-import Common.Common.Utilities;
 import Common.Constant.Constant;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class GeneralPage {
 
@@ -167,126 +158,9 @@ public class GeneralPage {
         getChangePasswordPage().click();
     }
 
-    //Dynamic Methods
-
-    public String readJson(String testCase,String value){
-
-        try {
-            JSONParser jsonParser = new JSONParser();
-            FileReader fileReader = new FileReader(System.getProperty("user.dir")+"\\SeleniumTest1\\DataObject\\data.json");
-
-            Object obj = jsonParser.parse(fileReader);
-
-            JSONObject jsonObject = (JSONObject) obj;
-            JSONArray jsonArray = (JSONArray) jsonObject.get(testCase);
-
-            jsonObject = (JSONObject) jsonArray.get(0);
-            return  (String) jsonObject.get(value);
-
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }catch (ParseException e){
-            e.printStackTrace();
-        }
-
-
-        return null;
-    }
-
-    public static String getExpectedLoginMsg(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\ExpectedLoginMsg.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static String getExpectedRegisterMsg(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\ExpectedRegisterMsg.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static String getExpectedChangePasswordMsg(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\ExpectedChangePasswordMsg.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static String getBookTicket(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\BookTicket.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public  String getExpectedBookTicketMsg(String value) {
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\ExpectedBookTicketMsg.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
     //check
     public boolean checkElementExist(By element) {
         return Constant.WEBDRIVER.findElements(element).size() != 0;
-    }
-
-    public boolean checkElementNotExist(By element) {
-        return Constant.WEBDRIVER.findElements(element).size() == 0;
-
     }
 
     public String getTitle(String title) {
@@ -343,23 +217,6 @@ public class GeneralPage {
     }
 
     //Message
-    public String pageTitle(String value) {
-
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\PageTitle.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get(value);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 
 
 

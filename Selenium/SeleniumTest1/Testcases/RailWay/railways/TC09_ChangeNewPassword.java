@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Hashtable;
 
 public class TC09_ChangeNewPassword extends CommonTestBase {
 
@@ -36,8 +37,8 @@ public class TC09_ChangeNewPassword extends CommonTestBase {
         registerPage.createAccount(account,tmEmail,tmPassword,tmPassword,tmPassport);
     }
 
-    @Test(dataProvider = "TC09")
-    public void TC09(String expected){
+    @Test(dataProvider = "getDataForTest")
+    public void TC09(Hashtable<String, String> data){
         System.out.println("TC09 - User can change password");
 
         System.out.println("Go to login page");
@@ -54,7 +55,7 @@ public class TC09_ChangeNewPassword extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = changePasswordPage.getMsgSuccess();
-        String expectedMsg = expected;
+        String expectedMsg = data.get("passwordChanged");
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

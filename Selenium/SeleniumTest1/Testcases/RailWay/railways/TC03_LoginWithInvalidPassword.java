@@ -7,6 +7,8 @@ import Testcases.RailWay.base.CommonTestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Hashtable;
+
 public class TC03_LoginWithInvalidPassword extends CommonTestBase {
 
     private String tmInvalidPassword = "Invalid Password";
@@ -15,8 +17,8 @@ public class TC03_LoginWithInvalidPassword extends CommonTestBase {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test(dataProvider = "TC03")
-    public void TC03(String expected){
+    @Test(dataProvider = "getDataForTest")
+    public void TC03(Hashtable<String, String> data){
         System.out.println("TC03 - User cannot log into Railway with invalid password");
 
         System.out.println("Go to login page");
@@ -27,7 +29,7 @@ public class TC03_LoginWithInvalidPassword extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = expected;
+        String expectedMsg = data.get("msg_InvalidLogin");
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

@@ -1,8 +1,10 @@
 package Common.Common;
 
 import Common.Constant.Constant;
+import com.google.gson.*;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,6 +13,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Hashtable;
 
 public class Utilities {
 
@@ -61,8 +68,6 @@ public class Utilities {
 
         }
 
-
-
     }
 
     public static void waiForControl(By element, int time)
@@ -71,5 +76,36 @@ public class Utilities {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
+    public static Object[][] getData(String dataFilePath, String testCaseName) throws IOException {
+        Object[][] data;
+
+        BufferedReader br = new BufferedReader(new FileReader(dataFilePath));
+        JsonElement jsonElement = new JsonParser().parse(br);
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+        JsonArray jsonArray = jsonObject.getAsJsonArray(testCaseName);
+        data = convertJsonArrayToObjectArray(jsonArray);
+        System.out.println(data);
+        return data;
+
+    }
+
+    public static Object[][] convertJsonArrayToObjectArray(JsonArray jsonArray){
+        Object[][] data = new Object[0][1];
+        Gson gson = new Gson();
+        int index = 0;
+
+        if (jsonArray.size()>0){
+            data = new Object[jsonArray.size()][1];
+            for (Object obj : jsonArray){
+                Hashtable<String, String> hashtable = new Hashtable<String, String>();
+                data[index][0] = gson.fromJson((JsonElement) obj, hashtable.getClass());
+                index++;
+            }
+        }
+        return data;
+
+
+    }
 
 }

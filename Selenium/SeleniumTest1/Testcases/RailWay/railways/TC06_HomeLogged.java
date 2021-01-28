@@ -6,6 +6,8 @@ import Testcases.RailWay.base.CommonTestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Hashtable;
+
 public class TC06_HomeLogged extends CommonTestBase {
 
     LoginPage loginPage = new LoginPage();
@@ -13,8 +15,8 @@ public class TC06_HomeLogged extends CommonTestBase {
     MyTicketPage myTicketPage = new MyTicketPage();
     ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 
-    @Test(dataProvider = "TC06")
-    public void TC06(String myTicketExpected,String changePwdExpected){
+    @Test(dataProvider = "getDataForTest")
+    public void TC06(Hashtable<String, String> data){
         System.out.println("TC06 - Additional pages display once user logged in");
 
         System.out.println("Go to login page");
@@ -29,12 +31,12 @@ public class TC06_HomeLogged extends CommonTestBase {
         System.out.println("Check my ticket page is displayed");
         myTicketPage.gotoMyTicketPage();
         String actualMyTicketTitle = myTicketPage.getMyTicketTitle();
-        String expectedMyTicketTitle = myTicketExpected;
+        String expectedMyTicketTitle = data.get("myTicketPage");
 
         System.out.println("Check change password page is displayed");
         changePasswordPage.gotoChangePasswordPage();
         String actualChangePasswordTitle = changePasswordPage.getChangePasswordTitle();
-        String expectedChangePasswordTitle = changePwdExpected;
+        String expectedChangePasswordTitle = data.get("changePassword");
 
         Assert.assertTrue(actualHome);
         Assert.assertEquals(actualMyTicketTitle,expectedMyTicketTitle);

@@ -23,12 +23,6 @@ public class ChangePasswordPage extends GeneralPage {
     private final By _btnChangePass = By.xpath("//input[@type='submit']");
     private final By _successMsg = By.xpath("//p[contains(@class,'message success')]");
 
-    //Methods
-    public static void waiForControl(By element, int time) {
-        WebDriverWait webDriverWait = new WebDriverWait(Constant.WEBDRIVER, time);
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(element));
-    }
-
     //Elements
     private WebElement getCurrentPass() {
         return Constant.WEBDRIVER.findElement(_currentPass);
@@ -83,24 +77,6 @@ public class ChangePasswordPage extends GeneralPage {
         getCurrentPass().sendKeys(currentpass);
     }
 
-
-    public String newPassword() {
-
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object obj = jsonParser.parse(new FileReader(System.getProperty("user.dir") + "\\SeleniumTest1\\DataObject\\ChangePassword.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            return (String) jsonObject.get("newPassword");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     //Message
     public String getMsgSuccess() {
 
@@ -109,13 +85,5 @@ public class ChangePasswordPage extends GeneralPage {
 
     public String getChangePasswordTitle() {
         return getTitle("Change password");
-    }
-
-    public String changePasswordTitle() {
-        return pageTitle("changePassword");
-    }
-
-    public String changePasswordSuccessfully() {
-        return getExpectedChangePasswordMsg("passwordChanged");
     }
 }

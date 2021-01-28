@@ -17,10 +17,6 @@ public class RegisterPage extends GeneralPage {
     private final By _btnRegister = By.xpath("//input[@type='submit']");
     private final By _lblErrorMsg = By.xpath("//p[@class='message error']");
 
-    private final String _boxAlertMsg = "//label[starts-with(text(),'%s')]" +
-            "//following-sibling::input[@class='error-field']" +
-            "//following-sibling::label";
-
     //Elements
     public WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(_txtUsername);
@@ -50,9 +46,6 @@ public class RegisterPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(_lblErrorMsg);
     }
 
-    public WebElement getAlertBoxMsg(String boxname) {
-        return Constant.WEBDRIVER.findElement(By.xpath(String.format(_boxAlertMsg, boxname)));
-    }
 
     //Methods
     public void fillData(String email, String password, String repass, String passport) {
@@ -89,26 +82,6 @@ public class RegisterPage extends GeneralPage {
     //Message
     public String getSuccessMsg() {
         return getLblSuccessMsg().getText();
-    }
-
-    public String registrationConfirmedMsg() {
-        return getExpectedRegisterMsg("RegistrationConfirmed");
-    }
-
-    public String invalidRegisterMsg() {
-        return getExpectedRegisterMsg("InvalidRegister");
-    }
-
-    public String invalidPasswordLengthMsg() {
-        return getExpectedRegisterMsg("PasswordLength");
-    }
-
-    public String invalidUsernameLengthMsg() {
-        return getExpectedRegisterMsg("UsernameLength");
-    }
-
-    public String invalidIDLengthMsg() {
-        return getExpectedRegisterMsg("IDLength");
     }
 
     public String getErrorMessage() {

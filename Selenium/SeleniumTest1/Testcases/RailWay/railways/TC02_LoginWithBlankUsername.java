@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Hashtable;
 import java.util.Random;
 
 public class TC02_LoginWithBlankUsername extends CommonTestBase {
@@ -16,8 +17,8 @@ public class TC02_LoginWithBlankUsername extends CommonTestBase {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test(dataProvider = "TC02")
-    public void TC02(String expected){
+    @Test(dataProvider = "getDataForTest")
+    public void TC02(Hashtable<String, String> data){
         System.out.println("TC02 - User can't login with blank Username textbox");
 
         System.out.println("Go to login page");
@@ -28,7 +29,7 @@ public class TC02_LoginWithBlankUsername extends CommonTestBase {
 
         System.out.println("Check message");
         String actualMsg = loginPage.getLoginErrorMsg();
-        String expectedMsg = expected;
+        String expectedMsg = data.get("msg_BlankLogin");
         Assert.assertEquals(actualMsg,expectedMsg);
 
     }

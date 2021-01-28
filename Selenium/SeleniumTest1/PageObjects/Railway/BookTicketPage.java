@@ -77,36 +77,11 @@ public class BookTicketPage extends GeneralPage{
 
         return false;
     }
-    //Methods get element from json file
-
-    public String departDate(){
-        return getBookTicket("departDate");
-    }
-
-    public String departStation(){
-        return getBookTicket("departFrom");
-    }
-
-    public String arriveStation(){
-        return getBookTicket("arriveAt");
-    }
-
-    public String seatType(){
-        return getBookTicket("seatType");
-    }
-
-    public String ticketAmount(){
-        return getBookTicket("ticketAmount");
-    }
-
     //Message
     public String getBookedTicketTitle(){
         return getTitle("Book ticket");
     }
 
-    public String bookedTicketTitle(){
-        return getExpectedBookTicketMsg("bookedTicket");
-    }
 
 
 }
