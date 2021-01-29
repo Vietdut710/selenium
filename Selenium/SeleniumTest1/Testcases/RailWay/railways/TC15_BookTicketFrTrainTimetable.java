@@ -52,8 +52,8 @@ public class TC15_BookTicketFrTrainTimetable extends CommonTestBase {
         timetablePage.chooseTrip(data.get("departFrom"),data.get("departArrive"));
 
         System.out.println("Check info of ticket");
-        boolean acctualTicket = timetablePage.checkSelectedTicket(data.get("departFrom"),data.get("departArrive"));
-        Assert.assertTrue(acctualTicket);
+        boolean actualTicket = timetablePage.checkSelectedTicket(data.get("departFrom"),data.get("departArrive"));
+        Assert.assertTrue(actualTicket);
 
     }
 }

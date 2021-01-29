@@ -1,18 +1,11 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import DataObject.Account;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class ChangePasswordPage extends GeneralPage {
 
@@ -25,22 +18,27 @@ public class ChangePasswordPage extends GeneralPage {
 
     //Elements
     private WebElement getCurrentPass() {
+        Utilities.waiForControl(_currentPass,10);
         return Constant.WEBDRIVER.findElement(_currentPass);
     }
 
     private WebElement getNewPass() {
+        Utilities.waiForControl(_newPass,10);
         return Constant.WEBDRIVER.findElement(_newPass);
     }
 
     private WebElement getConfirmPass() {
+        Utilities.waiForControl(_confirmPass,10);
         return Constant.WEBDRIVER.findElement(_confirmPass);
     }
 
     private WebElement getBtnChangePass() {
+        Utilities.waiForControl(_btnChangePass,10);
         return Constant.WEBDRIVER.findElement(_btnChangePass);
     }
 
     private WebElement getSuccessMsg() {
+        Utilities.waiForControl(_successMsg,10);
         return Constant.WEBDRIVER.findElement(_successMsg);
     }
 

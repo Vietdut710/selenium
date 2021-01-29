@@ -15,7 +15,7 @@ public class TC07_CreateAccount extends CommonTestBase {
 
     String time = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
 
-    private final String tmEmail = "thanh" + time + "@register.com";
+    private final String tmEmail = "thanh" + time + "@rr.com";
     private final String Password = "pass123456";
     private final String Passport = "pp123456789";
     Account account = Constant.account;

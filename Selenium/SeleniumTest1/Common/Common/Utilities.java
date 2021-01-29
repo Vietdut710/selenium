@@ -79,8 +79,8 @@ public class Utilities {
     public static Object[][] getData(String dataFilePath, String testCaseName) throws IOException {
         Object[][] data;
 
-        BufferedReader br = new BufferedReader(new FileReader(dataFilePath));
-        JsonElement jsonElement = new JsonParser().parse(br);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(dataFilePath));
+        JsonElement jsonElement = new JsonParser().parse(bufferedReader);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
 
         JsonArray jsonArray = jsonObject.getAsJsonArray(testCaseName);

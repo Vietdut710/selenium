@@ -35,7 +35,7 @@
     "IDLength": "Invalid ID length"
   }],
   "TC14_BookTicket": [{
-    "departDate": "2/1/2021",
+    "departDate": "2/4/2021",
     "departFrom": "Phan Thiết",
     "arriveAt": "Nha Trang",
     "seatType": "Hard bed",
@@ -43,8 +43,14 @@
     "bookedTicket": "Ticket booked successfully!"
   }],
   "TC15_BookTicketFrTrainTimetable": [{
-    "departFrom": "Sài Gòn",
-    "departArrive": "Nha Trang"
+    "departFrom": "Huế",
+    "departArrive": "Sài Gòn"
   }],
-  "TC16_CancelTicket": [{}]
+  "TC16_CancelTicket": [{
+    "departDate": "2/4/2021",
+    "departFrom": "Phan Thiết",
+    "arriveAt": "Nha Trang",
+    "seatType": "Hard bed",
+    "ticketAmount": "1"
+  }]
 }

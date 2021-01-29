@@ -1,5 +1,6 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import DataObject.Account;
 import org.openqa.selenium.By;
@@ -19,30 +20,37 @@ public class RegisterPage extends GeneralPage {
 
     //Elements
     public WebElement getTxtUsername() {
+        Utilities.waiForControl(_txtUsername,10);
         return Constant.WEBDRIVER.findElement(_txtUsername);
     }
 
     public WebElement getTxtPassword() {
+        Utilities.waiForControl(_txtPassword,10);
         return Constant.WEBDRIVER.findElement(_txtPassword);
     }
 
     public WebElement getTxtRePassword() {
+        Utilities.waiForControl(_txtRePassword,10);
         return Constant.WEBDRIVER.findElement(_txtRePassword);
     }
 
     public WebElement getTxtPassport() {
+        Utilities.waiForControl(_txtPassport,10);
         return Constant.WEBDRIVER.findElement(_txtPassport);
     }
 
     public WebElement getLblSuccessMsg() {
+        Utilities.waiForControl(_lblSuccessMsg,10);
         return Constant.WEBDRIVER.findElement(_lblSuccessMsg);
     }
 
     public WebElement getBtnRegister() {
+        Utilities.waiForControl(_btnRegister,10);
         return Constant.WEBDRIVER.findElement(_btnRegister);
     }
 
     public WebElement getErrorMsg() {
+        Utilities.waiForControl(_lblErrorMsg,10);
         return Constant.WEBDRIVER.findElement(_lblErrorMsg);
     }
 

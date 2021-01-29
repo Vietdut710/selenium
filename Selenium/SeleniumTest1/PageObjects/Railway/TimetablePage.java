@@ -2,10 +2,9 @@ package PageObjects.Railway;
 
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class TimetablePage extends GeneralPage{
     //Locator
@@ -24,25 +23,18 @@ public class TimetablePage extends GeneralPage{
 
     //Methods
     public void chooseTrip(String departFrom, String departArrive) {
+        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        js.executeScript("scrollBy(0, 4500)");
         linkBookTicket(departFrom,departArrive).click();
     }
 
     public boolean checkSelectedTicket(String departFrom, String departArrive) {
-        String departDate = new SimpleDateFormat("M/D/YYYY").format( Calendar.getInstance().getTime());
-        System.out.println(departDate);
 
+        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        js.executeScript("scrollBy(0, 4500)");
 
-        System.out.println(checkDepartDateSelectBox(departDate)
-                +"&&"+checkDepartFromSelectBox(departFrom)
-                +"&&"+checkArriveSelectBox(departArrive)
-                +"&&"+checkSeatSelectBox("Hard seat")
-                +"&&"+checkAmountSelectBox("1"));
-        if (checkDepartDateSelectBox(departDate)
-                &&checkDepartFromSelectBox(departFrom)
-                &&checkArriveSelectBox(departArrive)
-                &&checkSeatSelectBox("Hard seat")
-                &&checkAmountSelectBox("1")
-        )
+        if (checkDepartFromSelectBox(departFrom)
+                &&checkArriveSelectBox(departArrive))
         {
 
             return true;
@@ -52,13 +44,6 @@ public class TimetablePage extends GeneralPage{
     }
 
     //Method elements
-    public boolean checkDepartDateSelectBox(String value){
-
-        if (selectBox("Depart date").getText().contains(value)){
-            return true;
-        }
-        return false;
-    }
 
     public boolean checkDepartFromSelectBox(String value){
 
@@ -75,22 +60,5 @@ public class TimetablePage extends GeneralPage{
         }
         return false;
     }
-
-    public boolean checkSeatSelectBox(String value){
-
-        if (selectBox("Seat type").getText().contains(value)){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkAmountSelectBox(String value){
-
-        if (selectBox("Ticket amount").getText().contains(value)){
-            return true;
-        }
-        return false;
-    }
-
 
 }

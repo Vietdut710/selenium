@@ -1,7 +1,9 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -24,11 +26,12 @@ public class LoginPage extends GeneralPage {
     }
 
     private WebElement getBtnLogin() {
-
+        Utilities.waiForControl(_btnLogin,10);
         return Constant.WEBDRIVER.findElement(_btnLogin);
     }
 
     private WebElement getLblLoginErrorMsg() {
+        Utilities.waiForControl(_lblLoginErrorMsg,10);
         return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
     }
 
@@ -47,7 +50,9 @@ public class LoginPage extends GeneralPage {
     }
 
     public void clickLoginButton() {
-        getBtnLogin().sendKeys(Keys.ENTER);
+        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        js.executeScript("scrollBy(0, 4500)");
+        getBtnLogin().click();
         try {
             Thread.sleep(1500);
         }catch (Exception e){

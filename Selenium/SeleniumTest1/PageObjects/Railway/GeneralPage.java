@@ -1,5 +1,6 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -31,61 +32,75 @@ public class GeneralPage {
 
     //Elements
     protected WebElement getTabLogin() {
+        Utilities.waiForControl(tabLogin,10);
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
 
     protected WebElement getLblWelcomeMessage() {
+        Utilities.waiForControl(lblWelcomeMessage,10);
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
 
     protected WebElement getTabHomePage() {
+        Utilities.waiForControl(tabHome,10);
         return Constant.WEBDRIVER.findElement(tabHome);
     }
 
     protected WebElement getTabFAQPage() {
+        Utilities.waiForControl(tabFAQ,10);
         return Constant.WEBDRIVER.findElement(tabFAQ);
     }
 
     protected WebElement getTimetablePage() {
+        Utilities.waiForControl(tabTimetable,10);
         return Constant.WEBDRIVER.findElement(tabTimetable);
     }
 
     protected WebElement getContactPage() {
+        Utilities.waiForControl(tabContact,10);
         return Constant.WEBDRIVER.findElement(tabContact);
     }
 
     protected WebElement getTicketPricePage() {
+        Utilities.waiForControl(tabTicketPrice,10);
         return Constant.WEBDRIVER.findElement(tabTicketPrice);
     }
 
     protected WebElement getBookTicketPage() {
+        Utilities.waiForControl(tabBookTicket,10);
         return Constant.WEBDRIVER.findElement(tabBookTicket);
     }
 
     protected WebElement getRegisterPage() {
+        Utilities.waiForControl(tabRegister,10);
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
 
     protected WebElement getMyTicketPage() {
+        Utilities.waiForControl(tabMyTicket,10);
         return Constant.WEBDRIVER.findElement(tabMyTicket);
     }
 
     protected WebElement getChangePasswordPage() {
+        Utilities.waiForControl(tabChangePassword,10);
         return Constant.WEBDRIVER.findElement(tabChangePassword);
     }
 
     protected WebElement getLogout() {
+        Utilities.waiForControl(tabLogout,10);
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
 
     //Dynamic Elements
 
     protected WebElement getTabTitle(String title) {
+        Utilities.waiForControl(By.xpath(String.format(pageTitle, title)),10);
         return Constant.WEBDRIVER.findElement(By.xpath(String.format(pageTitle, title)));
     }
 
     protected WebElement getFieldMsg(String fieldName) {
         By field = By.xpath(String.format(fieldMsg,fieldName));
+        Utilities.waiForControl(field,10);
         return Constant.WEBDRIVER.findElement(field);
     }
 
@@ -100,10 +115,7 @@ public class GeneralPage {
         return this.getLblWelcomeMessage().getText();
     }
 
-    public LoginPage gotoLoginPage() {
-        this.getTabLogin().click();
-        return new LoginPage();
-    }
+
 
     public String fieldMsg(String fieldName) {
         return getFieldMsg(fieldName).getText();
@@ -112,15 +124,18 @@ public class GeneralPage {
     public void selectComboBox(String boxName, String value) {
         By element = By.xpath(String.format(selectBox,boxName) +"|"+
                 String.format(selectinBox,boxName));
-        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
-        js.executeScript("scrollBy(0, 4500)");
-
         Select select = new Select(Constant.WEBDRIVER.findElement(element));
         select.selectByVisibleText(value);
     }
 
 
+    public String getTitle(String title) {
+        return getTabTitle(title).getText();
+    }
+
     public void logout() { getLogout().click();}
+
+    public void gotoLoginPage() { getTabLogin().click();}
 
     public void gotoHomePage() {
         getTabHomePage().click();
@@ -163,58 +178,7 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElements(element).size() != 0;
     }
 
-    public String getTitle(String title) {
-        return getTabTitle(title).getText();
-    }
 
-    public boolean checkTicketBooked(String col, String value) {
-        By departStation = By.xpath("//tr[@class='OddRow']//td[1]");
-        By arriveStation = By.xpath("//tr[@class='OddRow']//td[2]");
-        By seatType = By.xpath("//tr[@class='OddRow']//td[3]");
-        By departDate = By.xpath("//tr[@class='OddRow']//td[4]");
-        By bookDate = By.xpath("//tr[@class='OddRow']//td[5]");
-        By expiredDate = By.xpath("//tr[@class='OddRow']//td[6]");
-        By amount = By.xpath("//tr[@class='OddRow']//td[7]");
-        By totalPrice = By.xpath("//tr[@class='OddRow']//td[8]");
-
-        switch (col) {
-            case "Depart Station":
-                if (Constant.WEBDRIVER.findElement(departStation).getText().equals(value)) {
-                    return true;
-                }
-            case "Arrive Station":
-                if (Constant.WEBDRIVER.findElement(arriveStation).getText().equals(value)) {
-                    return true;
-                }
-            case "Seat Type":
-                if (Constant.WEBDRIVER.findElement(seatType).getText().equals(value)) {
-                    return true;
-                }
-            case "Depart Date":
-                if (Constant.WEBDRIVER.findElement(departDate).getText().equals(value)) {
-                    return true;
-                }
-            case "Book Date":
-                if (Constant.WEBDRIVER.findElement(bookDate).getText().equals(value)) {
-                    return true;
-                }
-            case "Expired Date":
-                if (Constant.WEBDRIVER.findElement(expiredDate).getText().equals(value)) {
-                    return true;
-                }
-            case "Amount":
-                if (Constant.WEBDRIVER.findElement(amount).getText().equals(value)) {
-                    return true;
-                }
-            case "Total Price":
-                if (Constant.WEBDRIVER.findElement(totalPrice).getText().equals(value)) {
-                    return true;
-                }
-
-            default:
-                return false;
-        }
-    }
 
     //Message
 

@@ -1,5 +1,6 @@
 package PageObjects.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
 
@@ -13,6 +14,9 @@ public class HomePage extends GeneralPage {
 
     //Check
     public boolean checkLoginHomePage() {
+        Utilities.waiForControl(_tabMyTicket,10);
+        Utilities.waiForControl(_tabChangePassword,10);
+        Utilities.waiForControl(_tabLogout,10);
         if (checkElementExist(_tabMyTicket)
                 && checkElementExist(_tabChangePassword)
                 && checkElementExist(_tabLogout)) {
