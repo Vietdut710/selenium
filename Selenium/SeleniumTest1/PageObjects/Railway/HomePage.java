@@ -14,17 +14,12 @@ public class HomePage extends GeneralPage {
 
     //Check
     public boolean checkLoginHomePage() {
-        Utilities.waiForControl(_tabMyTicket,10);
-        Utilities.waiForControl(_tabChangePassword,10);
-        Utilities.waiForControl(_tabLogout,10);
-        if (checkElementExist(_tabMyTicket)
+        Utilities.waitForControl(_tabMyTicket, Constant.SHORTTIME);
+        Utilities.waitForControl(_tabChangePassword, Constant.SHORTTIME);
+        Utilities.waitForControl(_tabLogout, Constant.SHORTTIME);
+        return checkElementExist(_tabMyTicket)
                 && checkElementExist(_tabChangePassword)
-                && checkElementExist(_tabLogout)) {
-
-            return true;
-        }
-
-        return false;
+                && checkElementExist(_tabLogout);
     }
 
 }

@@ -2,7 +2,7 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
-import DataObject.Account;
+import Common.Object.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -20,37 +20,37 @@ public class RegisterPage extends GeneralPage {
 
     //Elements
     public WebElement getTxtUsername() {
-        Utilities.waiForControl(_txtUsername,10);
+        Utilities.waitForControl(_txtUsername, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_txtUsername);
     }
 
     public WebElement getTxtPassword() {
-        Utilities.waiForControl(_txtPassword,10);
+        Utilities.waitForControl(_txtPassword, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_txtPassword);
     }
 
     public WebElement getTxtRePassword() {
-        Utilities.waiForControl(_txtRePassword,10);
+        Utilities.waitForControl(_txtRePassword, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_txtRePassword);
     }
 
     public WebElement getTxtPassport() {
-        Utilities.waiForControl(_txtPassport,10);
+        Utilities.waitForControl(_txtPassport, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_txtPassport);
     }
 
     public WebElement getLblSuccessMsg() {
-        Utilities.waiForControl(_lblSuccessMsg,10);
+        Utilities.waitForControl(_lblSuccessMsg, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_lblSuccessMsg);
     }
 
     public WebElement getBtnRegister() {
-        Utilities.waiForControl(_btnRegister,10);
+        Utilities.waitForControl(_btnRegister, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_btnRegister);
     }
 
     public WebElement getErrorMsg() {
-        Utilities.waiForControl(_lblErrorMsg,10);
+        Utilities.waitForControl(_lblErrorMsg, Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_lblErrorMsg);
     }
 
@@ -65,7 +65,7 @@ public class RegisterPage extends GeneralPage {
     }
 
     public void createAccount(Account account, String email, String password, String repass, String passport) {
-        fillData(email,password,repass,passport);
+        fillData(email, password, repass, passport);
         saveNewAccount(account, email, password, passport);
         Constant.account = account;
         clickRegisterButton();

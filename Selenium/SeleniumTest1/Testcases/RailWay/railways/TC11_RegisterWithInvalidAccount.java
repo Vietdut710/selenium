@@ -1,25 +1,22 @@
 package Testcases.RailWay.railways;
 
+import Common.Constant.Constant;
 import PageObjects.Railway.RegisterPage;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Hashtable;
 
-public class TC11_RegisterWithInvalidAccount extends CommonTestBase{
+public class TC11_RegisterWithInvalidAccount extends TestBase {
 
-    String time = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
-
-    private String tmEmail = "thanh" + time + "@register.com";
     private String tmPassword = "pass123456";
     private String tmBlankBox = "";
     RegisterPage registerPage = new RegisterPage();
 
     @Test(dataProvider = "getDataForTest")
     public void TC11(Hashtable<String, String> data){
+        String tmEmail = "thanh" + Constant.randomUsername + "@register.com";
         System.out.println("TC11 - User can't create account while password and PID fields are empty");
 
         System.out.println("Go to register page");

@@ -3,23 +3,29 @@
 
 <suite name="Railway">
 
-    <test name="Test">
+<!--    <test name="Test Chrome">-->
+<!--        <parameter name="browser" value="Chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="Testcases.RailWay.railways.TC07_CreateAccount"/>-->
+<!--            <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount"/>-->
+<!--            <class name="Testcases.RailWay.railways.TC09_ChangeNewPassword"/>-->
+<!--            <class name="Testcases.RailWay.railways.TC10_RegisterWithInvalidAccount"/>-->
+<!--            <class name="Testcases.RailWay.railways.TC14_BookTicket"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="Test Chrome">
     <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="Testcases.RailWay.railways.TC01_LoginWithValidAccount"/>
-            <class name="Testcases.RailWay.railways.TC02_LoginWithBlankUsername"/>
-            <class name="Testcases.RailWay.railways.TC04_LoginFromBookTicket"/>
-            <class name="Testcases.RailWay.railways.TC05_LoginSeveralTimes"/>
-            <class name="Testcases.RailWay.railways.TC06_HomeLogged"/>
-            <class name="Testcases.RailWay.railways.TC07_CreateAccount"/>
-            <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount"/>
-            <class name="Testcases.RailWay.railways.TC09_ChangeNewPassword"/>
-            <class name="Testcases.RailWay.railways.TC10_RegisterWithInvalidAccount"/>
-            <class name="Testcases.RailWay.railways.TC11_RegisterWithInvalidAccount"/>
-            <class name="Testcases.RailWay.railways.TC14_BookTicket"/>
-            <class name="Testcases.RailWay.railways.TC15_BookTicketFrTrainTimetable"/>
-            <class name="Testcases.RailWay.railways.TC16_CancelTicket"/>
-        </classes>
+        <packages>
+            <package name="Testcases.RailWay.railways"></package>
+        </packages>
+    </test>
+
+    <test name="Test Firefox">
+        <parameter name="browser" value="Firefox"/>
+        <packages>
+            <package name="Testcases.RailWay.railways"></package>
+        </packages>
     </test>
 
 </suite>

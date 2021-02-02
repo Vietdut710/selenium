@@ -2,13 +2,13 @@ package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.*;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Hashtable;
 
-public class TC06_HomeLogged extends CommonTestBase {
+public class TC06_HomeLogged extends TestBase {
 
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();

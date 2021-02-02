@@ -1,4 +1,4 @@
-package DataObject;
+package Common.Object;
 
 public class Account {
     private String username;

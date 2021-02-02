@@ -4,7 +4,6 @@ import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends GeneralPage {
@@ -26,12 +25,12 @@ public class LoginPage extends GeneralPage {
     }
 
     private WebElement getBtnLogin() {
-        Utilities.waiForControl(_btnLogin,10);
+        Utilities.waitForControl(_btnLogin, Constant.MEDIUMTIME);
         return Constant.WEBDRIVER.findElement(_btnLogin);
     }
 
     private WebElement getLblLoginErrorMsg() {
-        Utilities.waiForControl(_lblLoginErrorMsg,10);
+        Utilities.waitForControl(_lblLoginErrorMsg, Constant.MEDIUMTIME);
         return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
     }
 
@@ -50,14 +49,9 @@ public class LoginPage extends GeneralPage {
     }
 
     public void clickLoginButton() {
-        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         js.executeScript("scrollBy(0, 4500)");
         getBtnLogin().click();
-        try {
-            Thread.sleep(1500);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
     }
 
@@ -84,18 +78,13 @@ public class LoginPage extends GeneralPage {
     public String getLoginErrorMsg() {
         return getLblLoginErrorMsg().getText();
     }
+
     public Boolean checkLoginErrorMsg() {
-        if(Constant.WEBDRIVER.findElements(_lblLoginErrorMsg).size()!=0){
-            return true;
-        }
-        return false;
+        return Constant.WEBDRIVER.findElements(_lblLoginErrorMsg).size() != 0;
     }
 
     public String getLoginPageTitle() {
         return getTitle("Login");
     }
-
-
-    //check
 
 }

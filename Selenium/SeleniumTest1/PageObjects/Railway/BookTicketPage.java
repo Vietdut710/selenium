@@ -18,24 +18,18 @@ public class BookTicketPage extends GeneralPage{
     public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
         JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
         js.executeScript("scrollBy(0, 4500)");
-        selectDepartDate(departDate);
         selectDepartFrom(departFrom);
-        selectArriveAt(arriveAt);
+        selectDepartDate(departDate);
         selectSeatType(seatType);
         selectTicketAmount(ticketAmount);
+        selectArriveAt(arriveAt);
         clickBtnBookTicket();
 
     }
 
     private void clickBtnBookTicket() {
-
         getBtnBookTicket().click();
 
-        try {
-            Thread.sleep(1500);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
     private void selectTicketAmount(String ticketAmount) {
@@ -48,14 +42,9 @@ public class BookTicketPage extends GeneralPage{
 
     private void selectArriveAt(String arriveAt) {
 
-        // I tried using Implicit Wait and Explicit Wait but it didn't work
-        try {
-            Thread.sleep(1000);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
         selectComboBox("Arrive at", arriveAt);
+
     }
 
     private void selectDepartFrom(String departFrom) {
@@ -117,15 +106,11 @@ public class BookTicketPage extends GeneralPage{
 
     public boolean checkTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
 
-        if(checkTicketBooked("Depart Date",departDate)
-                && checkTicketBooked("Depart Station",departFrom)
-                && checkTicketBooked("Arrive Station",arriveAt)
-                && checkTicketBooked("Seat Type",seatType)
-                && checkTicketBooked("Amount",ticketAmount)){
-            return true;
-        }
-
-        return false;
+        return checkTicketBooked("Depart Date", departDate)
+                && checkTicketBooked("Depart Station", departFrom)
+                && checkTicketBooked("Arrive Station", arriveAt)
+                && checkTicketBooked("Seat Type", seatType)
+                && checkTicketBooked("Amount", ticketAmount);
     }
     //Message
     public String getBookedTicketTitle(){

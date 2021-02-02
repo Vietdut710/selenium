@@ -1,21 +1,17 @@
 package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
-import DataObject.Account;
+import Common.Object.Account;
 import PageObjects.Railway.RegisterPage;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Hashtable;
 
-public class TC07_CreateAccount extends CommonTestBase {
+public class TC07_CreateAccount extends TestBase {
 
-    String time = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
 
-    private final String tmEmail = "thanh" + time + "@rr.com";
+
     private final String Password = "pass123456";
     private final String Passport = "pp123456789";
     Account account = Constant.account;
@@ -24,6 +20,7 @@ public class TC07_CreateAccount extends CommonTestBase {
 
     @Test(dataProvider = "getDataForTest")
     public void TC07(Hashtable<String, String> data) {
+        String tmEmail = "thanh" + Constant.randomUsername + "@rr.com";
         System.out.println("TC07 - User can create new account");
 
         System.out.println("Go to register page");
@@ -31,10 +28,6 @@ public class TC07_CreateAccount extends CommonTestBase {
 
         System.out.println("Register new account");
         registerPage.createAccount(account ,tmEmail, Password, Password, Passport);
-
-        System.out.println(account.getUsername());
-        System.out.println(account.getPassword());
-        System.out.println(account.getPassport());
 
         System.out.println("Check message");
         String actualMsg = registerPage.getSuccessMsg();

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [All Test Suite]">
+  <test thread-count="5" name="C:/Users/SATTDN20.03.08/Desktop/myProject/selenium/Selenium/SeleniumTest1/Testcases/RailWay/railways(failed)">
+    <classes>
+      <class name="Testcases.RailWay.railways.TC05_LoginSeveralTimes">
+        <methods>
+          <include name="TC05" invocation-numbers="0"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- Testcases.RailWay.railways.TC05_LoginSeveralTimes -->
+      <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="TC08" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount -->
+    </classes>
+  </test> <!-- C:/Users/SATTDN20.03.08/Desktop/myProject/selenium/Selenium/SeleniumTest1/Testcases/RailWay/railways(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

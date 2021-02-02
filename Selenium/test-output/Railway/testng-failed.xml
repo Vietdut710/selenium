@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Railway]">
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test Chrome(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
+      <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount">
+        <methods>
+          <include name="afterClass"/>
+          <include name="TC08" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount -->
       <class name="Testcases.RailWay.railways.TC05_LoginSeveralTimes">
         <methods>
           <include name="TC05" invocation-numbers="0"/>
-          <include name="beforeClass"/>
           <include name="afterClass"/>
+          <include name="beforeClass"/>
         </methods>
       </class> <!-- Testcases.RailWay.railways.TC05_LoginSeveralTimes -->
+    </classes>
+  </test> <!-- Test Chrome(failed) -->
+  <test thread-count="5" name="Test Firefox(failed)">
+    <parameter name="browser" value="Firefox"/>
+    <classes>
       <class name="Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount">
         <methods>
-          <include name="beforeClass"/>
-          <include name="TC08" invocation-numbers="0"/>
           <include name="afterClass"/>
+          <include name="TC08" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="beforeClass"/>
         </methods>
       </class> <!-- Testcases.RailWay.railways.TC08_LoginWithNotActivatedAccount -->
+      <class name="Testcases.RailWay.railways.TC05_LoginSeveralTimes">
+        <methods>
+          <include name="TC05" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- Testcases.RailWay.railways.TC05_LoginSeveralTimes -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test Firefox(failed) -->
 </suite> <!-- Failed suite [Railway] -->

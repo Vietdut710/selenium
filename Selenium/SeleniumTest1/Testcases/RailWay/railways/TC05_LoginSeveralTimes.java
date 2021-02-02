@@ -2,13 +2,13 @@ package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.*;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Hashtable;
 
-public class TC05_LoginSeveralTimes extends CommonTestBase {
+public class TC05_LoginSeveralTimes extends TestBase {
 
     private String tmInvalidPassword = "Invalid Password";
 

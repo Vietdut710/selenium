@@ -1,21 +1,19 @@
 package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
-import DataObject.Account;
+import Common.Object.Account;
 import PageObjects.Railway.*;
 
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.Hashtable;
 
-public class TC16_CancelTicket extends CommonTestBase {
 
-    String time = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
+public class TC16_CancelTicket extends TestBase {
 
     HomePage homePage = new HomePage();
     RegisterPage registerPage = new RegisterPage();
@@ -24,13 +22,13 @@ public class TC16_CancelTicket extends CommonTestBase {
     MyTicketPage myTicketPage = new MyTicketPage();
     Account account = Constant.account;
 
-    private final String tmEmail = "th" + time + "@cc.com";
     private final String tmPassword = "pass123456";
     private final String tmPassport = "pp123456789";
 
 
     @BeforeMethod
     public void beforeMethod(){
+        String tmEmail = "th" + Constant.randomUsername + "@cc.com";
         System.out.println("Pre-condition : Create account");
 
         homePage.gotoRegisterPage();
@@ -46,6 +44,7 @@ public class TC16_CancelTicket extends CommonTestBase {
 
         System.out.println("Login with just create account");
         loginPage.login(account.getUsername(),account.getPassword());
+
 
         System.out.println("Go to Book ticket page");
         homePage.gotoBookTicketPage();

@@ -2,15 +2,13 @@ package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import PageObjects.Railway.*;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Hashtable;
-import java.util.Random;
 
-public class TC02_LoginWithBlankUsername extends CommonTestBase {
+public class TC02_LoginWithBlankUsername extends TestBase {
 
     private String tmBlankUsername = "";
 

@@ -2,9 +2,9 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
-import DataObject.Account;
+import Common.Object.Account;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class ChangePasswordPage extends GeneralPage {
@@ -18,32 +18,34 @@ public class ChangePasswordPage extends GeneralPage {
 
     //Elements
     private WebElement getCurrentPass() {
-        Utilities.waiForControl(_currentPass,10);
+        Utilities.waitForControl(_currentPass,Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_currentPass);
     }
 
     private WebElement getNewPass() {
-        Utilities.waiForControl(_newPass,10);
+        Utilities.waitForControl(_newPass,Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_newPass);
     }
 
     private WebElement getConfirmPass() {
-        Utilities.waiForControl(_confirmPass,10);
+        Utilities.waitForControl(_confirmPass,Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_confirmPass);
     }
 
     private WebElement getBtnChangePass() {
-        Utilities.waiForControl(_btnChangePass,10);
+        Utilities.waitForControl(_btnChangePass,Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_btnChangePass);
     }
 
     private WebElement getSuccessMsg() {
-        Utilities.waiForControl(_successMsg,10);
+        Utilities.waitForControl(_successMsg,Constant.SHORTTIME);
         return Constant.WEBDRIVER.findElement(_successMsg);
     }
 
-    public void changePassword(Account account, String currentpass, String newPassword) {
-        fillCurrentPass(currentpass);
+    public void changePassword(Account account, String currentPwd, String newPassword) {
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+        js.executeScript("scrollBy(0, 4500)");
+        fillCurrentPass(currentPwd);
         fillNewPass(newPassword);
         fillConfirmPass(newPassword);
         account.setPassword(newPassword);
@@ -51,13 +53,10 @@ public class ChangePasswordPage extends GeneralPage {
     }
 
     private void clickBtnChangePassword() {
-        getBtnChangePass().sendKeys(Keys.ENTER);
 
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        getBtnChangePass().click();
+
     }
 
     private void fillConfirmPass(String tmNewPassword) {
@@ -70,9 +69,9 @@ public class ChangePasswordPage extends GeneralPage {
         getNewPass().sendKeys(tmNewPassword);
     }
 
-    private void fillCurrentPass(String currentpass) {
+    private void fillCurrentPass(String currentPwd) {
         getCurrentPass().clear();
-        getCurrentPass().sendKeys(currentpass);
+        getCurrentPass().sendKeys(currentPwd);
     }
 
     //Message

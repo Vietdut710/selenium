@@ -1,14 +1,13 @@
 package Testcases.RailWay.railways;
 
 import PageObjects.Railway.*;
-import Testcases.RailWay.base.CommonTestBase;
+import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Hashtable;
-import java.util.Random;
 
-public class TC04_LoginFromBookTicket extends CommonTestBase {
+public class TC04_LoginFromBookTicket extends TestBase {
 
     LoginPage loginPage = new LoginPage();
 
