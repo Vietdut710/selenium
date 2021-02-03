@@ -1,23 +1,34 @@
 package PageObjects.Railway;
 
 import Common.Constant.Constant;
+import Common.Object.TicketInfo;
+import PageObjects.CommonObjects.GeneralPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-public class BookTicketPage extends GeneralPage{
+public class BookTicketPage extends GeneralPage {
 
 
     //Locator
     private final By _btnBookTicket = By.xpath("//input[@type='submit']");
 
     //Elements
-    protected WebElement getBtnBookTicket(){ return Constant.WEBDRIVER.findElement(_btnBookTicket);}
+    protected WebElement getBtnBookTicket() {
+        return Constant.WEBDRIVER.findElement(_btnBookTicket);
+    }
 
     //Methods
     public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
-        JavascriptExecutor js = (JavascriptExecutor)Constant.WEBDRIVER;
+        Constant.ticketInfo.setDepartDate(departDate);
+        Constant.ticketInfo.setDepartStation(departFrom);
+        Constant.ticketInfo.setDepartArrive(arriveAt);
+        Constant.ticketInfo.setSeatType(seatType);
+        Constant.ticketInfo.setAmountTicket(ticketAmount);
+
+        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         js.executeScript("scrollBy(0, 4500)");
+
         selectDepartFrom(departFrom);
         selectDepartDate(departDate);
         selectSeatType(seatType);
@@ -33,11 +44,11 @@ public class BookTicketPage extends GeneralPage{
     }
 
     private void selectTicketAmount(String ticketAmount) {
-        selectComboBox("Ticket amount",ticketAmount);
+        selectComboBox("Ticket amount", ticketAmount);
     }
 
     private void selectSeatType(String seatType) {
-        selectComboBox("Seat type",seatType);
+        selectComboBox("Seat type", seatType);
     }
 
     private void selectArriveAt(String arriveAt) {
@@ -48,11 +59,11 @@ public class BookTicketPage extends GeneralPage{
     }
 
     private void selectDepartFrom(String departFrom) {
-        selectComboBox("Depart from",departFrom);
+        selectComboBox("Depart from", departFrom);
     }
 
     private void selectDepartDate(String departDate) {
-        selectComboBox("Depart date",departDate);
+        selectComboBox("Depart date", departDate);
     }
 
     public boolean checkTicketBooked(String col, String value) {
@@ -104,19 +115,19 @@ public class BookTicketPage extends GeneralPage{
         }
     }
 
-    public boolean checkTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
+    public boolean checkTicket(TicketInfo ticketInfo) {
 
-        return checkTicketBooked("Depart Date", departDate)
-                && checkTicketBooked("Depart Station", departFrom)
-                && checkTicketBooked("Arrive Station", arriveAt)
-                && checkTicketBooked("Seat Type", seatType)
-                && checkTicketBooked("Amount", ticketAmount);
+        return checkTicketBooked("Depart Date", ticketInfo.getDepartDate())
+                && checkTicketBooked("Depart Station", ticketInfo.getDepartStation())
+                && checkTicketBooked("Arrive Station", ticketInfo.getDepartArrive())
+                && checkTicketBooked("Seat Type", ticketInfo.getSeatType())
+                && checkTicketBooked("Amount", ticketInfo.getAmountTicket());
     }
+
     //Message
-    public String getBookedTicketTitle(){
+    public String getBookedTicketTitle() {
         return getTitle("Book ticket");
     }
-
 
 
 }

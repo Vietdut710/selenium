@@ -10,7 +10,7 @@ System info: host: &amp;apos;LGDN14993-W10&amp;apos;, ip: &amp;apos;192.168.188.
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\SATTDN~1.08\AppDat...}, goog:chromeOptions: {debuggerAddress: localhost:59593}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
 Session ID: 33e0d4a90fa329a3c91bc7ef3ba5cd39">
-      <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+        <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=88.0.4324.104)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
@@ -28,7 +28,7 @@ at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276
 at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
 at org.openqa.selenium.support.ui.Select.setSelected(Select.java:324)
 at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:120)
-at PageObjects.Railway.GeneralPage.selectComboBox(GeneralPage.java:128)
+at PageObjects.CommonObjects.GeneralPage.selectComboBox(GeneralPage.java:128)
 at PageObjects.Railway.BookTicketPage.selectArriveAt(BookTicketPage.java:54)
 at PageObjects.Railway.BookTicketPage.bookTicket(BookTicketPage.java:27)
 at Testcases.RailWay.railways.TC16_CancelTicket.TC16(TC16_CancelTicket.java:52)

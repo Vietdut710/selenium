@@ -2,6 +2,7 @@ package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
 import Common.Object.Account;
+import Common.Object.TicketInfo;
 import PageObjects.Railway.BookTicketPage;
 import PageObjects.Railway.HomePage;
 import PageObjects.Railway.LoginPage;
@@ -10,6 +11,7 @@ import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 
 import java.util.Hashtable;
 
@@ -22,14 +24,15 @@ public class TC14_BookTicket extends TestBase {
     RegisterPage registerPage = new RegisterPage();
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
-    Account account = Constant.account;
+
+
 
     @BeforeMethod
     public void beforeTest() {
         String tmEmail = "th" + Constant.randomUsername + "@bt.com";
         System.out.println("Pre-condition: Create new account");
         homePage.gotoRegisterPage();
-        registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
+        registerPage.createAccount(tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
     @Test(dataProvider = "getDataForTest")
@@ -40,7 +43,7 @@ public class TC14_BookTicket extends TestBase {
         homePage.gotoLoginPage();
 
         System.out.println("Login with just created account");
-        loginPage.login(account.getUsername(), account.getPassword());
+        loginPage.login(Constant.account.getUsername(), Constant.account.getPassword());
 
         System.out.println("Go to Book ticket page");
         homePage.gotoBookTicketPage();
@@ -51,7 +54,7 @@ public class TC14_BookTicket extends TestBase {
         System.out.println("Check booked ticket");
         String actualMsg = bookTicketPage.getBookedTicketTitle();
         String expectedMsg = data.get("bookedTicket");
-        boolean actualTicket = bookTicketPage.checkTicket(data.get("departDate"), data.get("departFrom"), data.get("arriveAt"), data.get("seatType"), data.get("ticketAmount"));
+        boolean actualTicket = bookTicketPage.checkTicket(Constant.ticketInfo);
         Assert.assertEquals(actualMsg, expectedMsg);
         Assert.assertTrue(actualTicket);
     }

@@ -1,7 +1,10 @@
 package Testcases.RailWay.railways;
 
 import Common.Constant.Constant;
-import PageObjects.Railway.*;
+import PageObjects.Railway.ChangePasswordPage;
+import PageObjects.Railway.HomePage;
+import PageObjects.Railway.LoginPage;
+import PageObjects.Railway.MyTicketPage;
 import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,14 +19,14 @@ public class TC06_HomeLogged extends TestBase {
     ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 
     @Test(dataProvider = "getDataForTest")
-    public void TC06(Hashtable<String, String> data){
+    public void TC06(Hashtable<String, String> data) {
         System.out.println("TC06 - Additional pages display once user logged in");
 
         System.out.println("Go to login page");
         homePage.gotoLoginPage();
 
         System.out.println("Login with valid account");
-        loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         System.out.println("Check home page the user logged");
         boolean actualHome = homePage.checkLoginHomePage();
@@ -39,8 +42,8 @@ public class TC06_HomeLogged extends TestBase {
         String expectedChangePasswordTitle = data.get("changePassword");
 
         Assert.assertTrue(actualHome);
-        Assert.assertEquals(actualMyTicketTitle,expectedMyTicketTitle);
-        Assert.assertEquals(actualChangePasswordTitle,expectedChangePasswordTitle);
+        Assert.assertEquals(actualMyTicketTitle, expectedMyTicketTitle);
+        Assert.assertEquals(actualChangePasswordTitle, expectedChangePasswordTitle);
 
     }
 }

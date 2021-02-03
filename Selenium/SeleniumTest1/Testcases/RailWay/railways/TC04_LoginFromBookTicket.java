@@ -1,6 +1,6 @@
 package Testcases.RailWay.railways;
 
-import PageObjects.Railway.*;
+import PageObjects.Railway.LoginPage;
 import Testcases.RailWay.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public class TC04_LoginFromBookTicket extends TestBase {
     LoginPage loginPage = new LoginPage();
 
     @Test(dataProvider = "getDataForTest")
-    public void TC04(Hashtable<String, String> data){
+    public void TC04(Hashtable<String, String> data) {
         System.out.println("TC04 - Login page displays when un-logged User clicks on Book ticket tab");
 
         System.out.println("Go to Book ticket page");
@@ -21,7 +21,7 @@ public class TC04_LoginFromBookTicket extends TestBase {
         System.out.println("Check login page is displayed");
         String actualTitle = loginPage.getLoginPageTitle();
         String expectedTitle = data.get("loginPage");
-        Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle);
 
     }
 }

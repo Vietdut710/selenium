@@ -31,7 +31,7 @@ public class TC15_BookTicketFrTrainTimetable extends TestBase {
         System.out.println("Pre-condition : Create account");
 
         homePage.gotoRegisterPage();
-        registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
+        registerPage.createAccount(tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
     @Test(dataProvider = "getDataForTest")
@@ -40,7 +40,7 @@ public class TC15_BookTicketFrTrainTimetable extends TestBase {
 
         System.out.println("login");
         homePage.gotoLoginPage();
-        loginPage.login(account.getUsername(),account.getPassword());
+        loginPage.login(Constant.account.getUsername(),Constant.account.getPassword());
 
         System.out.println("Go to Timetable page");
         homePage.gotoTimetablePage();

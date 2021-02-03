@@ -1,4 +1,4 @@
-package PageObjects.Railway;
+package PageObjects.CommonObjects;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
@@ -10,13 +10,13 @@ import org.openqa.selenium.support.ui.Select;
 public class GeneralPage {
 
     //Locators
-    private final By tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
-    private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
-    private final By tabTimetable = By.xpath("//div[@id='menu']//span[contains(text(),'Timetable')]");
-    private final By tabBookTicket = By.xpath("//div[@id='menu']//span[contains(text(),'Book ticket')]");
-    private final By tabMyTicket = By.xpath("//div[@id='menu']//span[contains(text(),'My ticket')]");
-    private final By tabChangePassword = By.xpath("//div[@id='menu']//span[contains(text(),'Change password')]");
-    private final By tabRegister = By.xpath("//div[@id='menu']//span[contains(text(),'Register')]");
+    private final By _tabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
+    private final By _lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
+    private final By _tabTimetable = By.xpath("//div[@id='menu']//span[contains(text(),'Timetable')]");
+    private final By _tabBookTicket = By.xpath("//div[@id='menu']//span[contains(text(),'Book ticket')]");
+    private final By _tabMyTicket = By.xpath("//div[@id='menu']//span[contains(text(),'My ticket')]");
+    private final By _tabChangePassword = By.xpath("//div[@id='menu']//span[contains(text(),'Change password')]");
+    private final By _tabRegister = By.xpath("//div[@id='menu']//span[contains(text(),'Register')]");
 
     private final String pageTitle = "//span[contains(text(),'%s')]//ancestor::div[@id='page']//h1";
     private final String fieldMsg = "//label[starts-with(text(),'%s')]//following-sibling::label";
@@ -25,38 +25,38 @@ public class GeneralPage {
 
     //Elements
     protected WebElement getTabLogin() {
-        Utilities.waitForControl(tabLogin, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabLogin);
+        Utilities.waitForControl(_tabLogin, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabLogin);
     }
 
     protected WebElement getLblWelcomeMessage() {
-        Utilities.waitForControl(lblWelcomeMessage, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
+        Utilities.waitForControl(_lblWelcomeMessage, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_lblWelcomeMessage);
     }
 
     protected WebElement getTimetablePage() {
-        Utilities.waitForControl(tabTimetable, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabTimetable);
+        Utilities.waitForControl(_tabTimetable, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabTimetable);
     }
 
     protected WebElement getBookTicketPage() {
-        Utilities.waitForControl(tabBookTicket, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabBookTicket);
+        Utilities.waitForControl(_tabBookTicket, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabBookTicket);
     }
 
     protected WebElement getRegisterPage() {
-        Utilities.waitForControl(tabRegister, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabRegister);
+        Utilities.waitForControl(_tabRegister, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabRegister);
     }
 
     protected WebElement getMyTicketPage() {
-        Utilities.waitForControl(tabMyTicket, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabMyTicket);
+        Utilities.waitForControl(_tabMyTicket, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabMyTicket);
     }
 
     protected WebElement getChangePasswordPage() {
-        Utilities.waitForControl(tabChangePassword, Constant.SHORTTIME);
-        return Constant.WEBDRIVER.findElement(tabChangePassword);
+        Utilities.waitForControl(_tabChangePassword, Constant.SHORTTIME);
+        return Constant.WEBDRIVER.findElement(_tabChangePassword);
     }
 
 

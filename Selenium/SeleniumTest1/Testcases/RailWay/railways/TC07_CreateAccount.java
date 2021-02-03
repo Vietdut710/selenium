@@ -27,7 +27,7 @@ public class TC07_CreateAccount extends TestBase {
         registerPage.gotoRegisterPage();
 
         System.out.println("Register new account");
-        registerPage.createAccount(account ,tmEmail, Password, Password, Passport);
+        registerPage.createAccount(tmEmail, Password, Password, Passport);
 
         System.out.println("Check message");
         String actualMsg = registerPage.getSuccessMsg();

@@ -3,6 +3,8 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
+import Common.Object.TicketInfo;
+import PageObjects.CommonObjects.GeneralPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -20,8 +22,13 @@ public class MyTicketPage extends GeneralPage {
         return getTitle("My ticket");
     }
 
-    public void cancelTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
-        By _ctrlBtnCancel = By.xpath(String.format(_btnCancel, departFrom, arriveAt, seatType, departDate, ticketAmount));
+    public void cancelTicket(TicketInfo ticketInfo) {
+        By _ctrlBtnCancel = By.xpath(String.format(_btnCancel
+                , ticketInfo.getDepartStation()
+                , ticketInfo.getDepartArrive()
+                , ticketInfo.getSeatType()
+                , ticketInfo.getDepartDate()
+                , ticketInfo.getAmountTicket()));
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         js.executeScript("scrollBy(0, 4500)");
 
@@ -33,8 +40,13 @@ public class MyTicketPage extends GeneralPage {
 
     }
 
-    public boolean checkTicketExist(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
-        By _ctrlTicketInfo = By.xpath(String.format(_ticketInfo, departFrom, arriveAt, seatType, departDate, ticketAmount));
+    public boolean checkTicketExist(TicketInfo ticketInfo) {
+        By _ctrlTicketInfo = By.xpath(String.format(_ticketInfo
+                , ticketInfo.getDepartStation()
+                , ticketInfo.getDepartArrive()
+                , ticketInfo.getSeatType()
+                , ticketInfo.getDepartDate()
+                , ticketInfo.getAmountTicket()));
 
         Utilities.waitForStep(_ctrlTicketInfo, Constant.SHORTTIME);
 

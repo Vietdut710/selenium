@@ -32,7 +32,7 @@ public class TC16_CancelTicket extends TestBase {
         System.out.println("Pre-condition : Create account");
 
         homePage.gotoRegisterPage();
-        registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
+        registerPage.createAccount(tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
     @Test(dataProvider = "getDataForTest")
@@ -43,7 +43,7 @@ public class TC16_CancelTicket extends TestBase {
         homePage.gotoLoginPage();
 
         System.out.println("Login with just create account");
-        loginPage.login(account.getUsername(),account.getPassword());
+        loginPage.login(Constant.account.getUsername(),Constant.account.getPassword());
 
 
         System.out.println("Go to Book ticket page");
@@ -56,10 +56,10 @@ public class TC16_CancelTicket extends TestBase {
         bookTicketPage.gotoMyTicketPage();
 
         System.out.println("Cancel just booked ticket");
-        myTicketPage.cancelTicket(data.get("departDate"), data.get("departFrom"), data.get("arriveAt"), data.get("seatType"),data.get("ticketAmount"));
+        myTicketPage.cancelTicket(Constant.ticketInfo);
 
         System.out.println("Check ticket not exist");
-        Boolean actualResult = myTicketPage.checkTicketExist(data.get("departDate"), data.get("departFrom"), data.get("arriveAt"), data.get("seatType"),data.get("ticketAmount") );
+        Boolean actualResult = myTicketPage.checkTicketExist(Constant.ticketInfo);
 
         Assert.assertFalse(actualResult);
     }

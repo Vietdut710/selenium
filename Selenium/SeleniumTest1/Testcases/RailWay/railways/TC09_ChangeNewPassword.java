@@ -32,7 +32,7 @@ public class TC09_ChangeNewPassword extends TestBase {
         System.out.println("Pre-condition: Create new account");
 
         homePage.gotoRegisterPage();
-        registerPage.createAccount(account,tmEmail,tmPassword,tmPassword,tmPassport);
+        registerPage.createAccount(tmEmail,tmPassword,tmPassword,tmPassport);
     }
 
     @Test(dataProvider = "getDataForTest")
@@ -43,7 +43,7 @@ public class TC09_ChangeNewPassword extends TestBase {
         registerPage.gotoLoginPage();
 
         System.out.println("Login with just create account");
-        loginPage.login(account.getUsername(),account.getPassword());
+        loginPage.login(Constant.account.getUsername(),Constant.account.getPassword());
 
         System.out.println("Go to change password page");
         homePage.gotoChangePasswordPage();

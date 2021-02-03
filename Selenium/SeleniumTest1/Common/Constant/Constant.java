@@ -2,6 +2,7 @@ package Common.Constant;
 
 
 import Common.Object.Account;
+import Common.Object.TicketInfo;
 import org.openqa.selenium.WebDriver;
 
 public class Constant {
@@ -14,5 +15,6 @@ public class Constant {
     public static String randomUsername;
     public static WebDriver WEBDRIVER;
     public static Account account = new Account();
+    public static TicketInfo ticketInfo = new TicketInfo();
 
 }

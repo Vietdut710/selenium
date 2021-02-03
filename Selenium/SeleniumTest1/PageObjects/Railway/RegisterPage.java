@@ -2,7 +2,7 @@ package PageObjects.Railway;
 
 import Common.Common.Utilities;
 import Common.Constant.Constant;
-import Common.Object.Account;
+import PageObjects.CommonObjects.GeneralPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -64,18 +64,16 @@ public class RegisterPage extends GeneralPage {
 
     }
 
-    public void createAccount(Account account, String email, String password, String repass, String passport) {
+    public void createAccount(String email, String password, String repass, String passport) {
+        Constant.account.setUsername(email);
+        Constant.account.setPassword(password);
+        Constant.account.setPassport(passport);
+
         fillData(email, password, repass, passport);
-        saveNewAccount(account, email, password, passport);
-        Constant.account = account;
         clickRegisterButton();
     }
 
-    private void saveNewAccount(Account account, String email, String password, String passport) {
-        account.setUsername(email);
-        account.setPassword(password);
-        account.setPassport(passport);
-    }
+
 
     public void clickRegisterButton() {
         getBtnRegister().sendKeys(Keys.ENTER);

@@ -27,7 +27,7 @@ public class TC08_LoginWithNotActivatedAccount extends TestBase {
         System.out.println("Pre-condition: Create new account");
 
         homePage.gotoRegisterPage();
-        registerPage.createAccount(account, tmEmail, tmPassword, tmPassword, tmPassport);
+        registerPage.createAccount(tmEmail, tmPassword, tmPassword, tmPassport);
     }
 
     @Test(dataProvider = "getDataForTest")
@@ -38,7 +38,7 @@ public class TC08_LoginWithNotActivatedAccount extends TestBase {
         homePage.gotoLoginPage();
 
         System.out.println("Login with just create account hasn't been activate");
-        loginPage.login(account.getUsername(), account.getPassword());
+        loginPage.login(Constant.account.getUsername(), Constant.account.getPassword());
 
         System.out.println("Check login invalid");
         Boolean actualMsg = loginPage.checkLoginErrorMsg();
